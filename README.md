@@ -1,4 +1,6 @@
-# 前台 v0.1
+# Worthward
+
+Hold every thought. Move what matters forward.
 
 一个安静承接想法、隔离工作与个人内容的自托管记录工具。
 
