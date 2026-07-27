@@ -1,0 +1,740 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3f0e8;
+  --paper-deep: #e9e3d7;
+  --ink: #20231f;
+  --muted: #6d7069;
+  --line: rgba(32, 35, 31, 0.13);
+  --white: #fffdf8;
+  --work: #3f5d72;
+  --work-soft: #dce6eb;
+  --life: #65745b;
+  --life-soft: #e0e6d9;
+  --danger: #9d594d;
+  --shadow: 0 24px 70px rgba(47, 42, 33, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255, 255, 255, 0.78), transparent 27rem),
+    var(--paper);
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
+::selection {
+  background: #cfd9c7;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.primary-button {
+  align-items: center;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--white);
+  display: inline-flex;
+  font-size: 0.88rem;
+  font-weight: 650;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.25rem;
+  transition:
+    transform 160ms ease,
+    background 160ms ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #30342e;
+  transform: translateY(-1px);
+}
+
+.primary-button:focus-visible,
+.text-button:focus-visible,
+.view-tabs a:focus-visible,
+.entry-actions button:focus-visible,
+.space-switch button:focus-visible,
+.back-link:focus-visible,
+.wordmark:focus-visible,
+.space-card:focus-visible {
+  outline: 3px solid rgba(63, 93, 114, 0.28);
+  outline-offset: 3px;
+}
+
+.full-button {
+  width: 100%;
+}
+
+.text-button {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 0.25rem;
+}
+
+.app-header {
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 10;
+}
+
+.app-header-inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1120px;
+  min-height: 4.5rem;
+  padding: 0 1.5rem;
+}
+
+.header-left,
+.header-account {
+  align-items: center;
+  display: flex;
+}
+
+.header-left {
+  gap: 1.25rem;
+}
+
+.header-account {
+  color: var(--muted);
+  font-size: 0.8rem;
+  gap: 0.85rem;
+}
+
+.wordmark {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.back-link {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.home-shell,
+.space-shell {
+  margin: 0 auto;
+  max-width: 1040px;
+  padding: 5.5rem 1.5rem 6rem;
+}
+
+.home-intro {
+  margin: 0 auto 2.1rem;
+  max-width: 760px;
+  text-align: center;
+}
+
+.home-intro h1 {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+  margin: 1rem auto 1.2rem;
+}
+
+.home-intro > p:last-child,
+.space-heading > div:first-child > p:last-child {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.capture-card {
+  background: rgba(255, 253, 248, 0.9);
+  border: 1px solid rgba(32, 35, 31, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  margin: 0 auto;
+  max-width: 780px;
+  padding: 1.15rem;
+}
+
+.capture-card textarea {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  display: block;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  outline: none;
+  padding: 0.65rem 0.75rem;
+  resize: vertical;
+  width: 100%;
+}
+
+.capture-card textarea::placeholder {
+  color: #9a9a90;
+}
+
+.capture-footer {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.5rem 0.25rem 0;
+}
+
+.space-switch {
+  background: var(--paper);
+  border-radius: 999px;
+  display: flex;
+  padding: 0.2rem;
+}
+
+.space-switch button {
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  min-width: 3.7rem;
+  padding: 0.55rem 0.8rem;
+}
+
+.space-switch button.is-active {
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(47, 42, 33, 0.08);
+  color: var(--ink);
+}
+
+.capture-actions {
+  align-items: center;
+  display: flex;
+  gap: 0.9rem;
+}
+
+.save-status {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.space-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 4.5rem;
+}
+
+.space-card {
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 21rem;
+  padding: 1.75rem;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.space-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.space-card-work {
+  background: var(--work-soft);
+}
+
+.space-card-personal {
+  background: var(--life-soft);
+}
+
+.space-card-top {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.space-symbol {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.58);
+  border-radius: 50%;
+  display: inline-flex;
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 1.5rem;
+  height: 4rem;
+  justify-content: center;
+  width: 4rem;
+}
+
+.space-arrow {
+  font-size: 1.25rem;
+}
+
+.space-card h2 {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin: 0.6rem 0;
+}
+
+.space-card p:last-child {
+  color: rgba(32, 35, 31, 0.68);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 24rem;
+}
+
+.privacy-note {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin: 1.35rem auto 0;
+  text-align: center;
+}
+
+.space-shell {
+  padding-top: 4.5rem;
+}
+
+.space-heading {
+  align-items: flex-end;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr minmax(18rem, 0.72fr);
+  margin-bottom: 2.5rem;
+}
+
+.space-heading h1 {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 0.96;
+  margin: 0.7rem 0 1.25rem;
+}
+
+.frontstage-placeholder {
+  border-left: 1px solid var(--line);
+  padding: 0.4rem 0 0.4rem 1.5rem;
+}
+
+.frontstage-placeholder span {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.frontstage-placeholder p {
+  line-height: 1.65;
+  margin: 0.65rem 0 0;
+}
+
+.capture-card-compact {
+  margin: 0;
+  max-width: none;
+}
+
+.journal-section {
+  margin-top: 5rem;
+}
+
+.journal-toolbar {
+  align-items: flex-end;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.2rem;
+}
+
+.journal-toolbar h2 {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0;
+}
+
+.view-tabs {
+  background: rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  display: flex;
+  padding: 0.2rem;
+}
+
+.view-tabs a {
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  padding: 0.55rem 0.9rem;
+}
+
+.view-tabs a.is-active {
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(47, 42, 33, 0.06);
+  color: var(--ink);
+}
+
+.entry-list {
+  margin: 0 auto;
+  max-width: 760px;
+}
+
+.entry-card {
+  border-bottom: 1px solid var(--line);
+  padding: 2.3rem 0;
+}
+
+.entry-card > p {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.9;
+  margin: 1rem 0 1.4rem;
+  white-space: pre-wrap;
+}
+
+.entry-meta,
+.entry-actions {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.entry-meta {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.entry-badge {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+}
+
+.entry-badge-journal {
+  background: rgba(101, 116, 91, 0.1);
+  color: var(--life);
+}
+
+.entry-actions button {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  padding: 0;
+}
+
+.entry-actions button:hover {
+  color: var(--ink);
+}
+
+.entry-actions button.subtle-danger:hover {
+  color: var(--danger);
+}
+
+.empty-state {
+  color: var(--muted);
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.empty-state > span {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  color: var(--ink);
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.empty-state p {
+  line-height: 1.7;
+}
+
+.auth-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(26rem, 0.9fr);
+  min-height: 100vh;
+}
+
+.auth-copy {
+  background: var(--life);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(2rem, 7vw, 7rem);
+}
+
+.auth-copy .eyebrow {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: auto;
+}
+
+.brand-mark {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: inline-flex;
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 1.8rem;
+  height: 4.5rem;
+  justify-content: center;
+  width: 4.5rem;
+}
+
+.auth-copy h1 {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: clamp(2.7rem, 6vw, 5.6rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1.08;
+  margin: 1.2rem 0;
+  max-width: 13ch;
+}
+
+.auth-copy > p:last-child {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  max-width: 36rem;
+}
+
+.auth-panel {
+  align-self: center;
+  margin: 0 auto;
+  max-width: 30rem;
+  padding: 3rem;
+  width: 100%;
+}
+
+.auth-panel h2 {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0.6rem 0 2rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.field input {
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  color: var(--ink);
+  min-height: 3.25rem;
+  outline: none;
+  padding: 0.8rem 0.95rem;
+}
+
+.field input:focus {
+  border-color: var(--life);
+  box-shadow: 0 0 0 3px rgba(101, 116, 91, 0.1);
+}
+
+.form-error {
+  color: var(--danger);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.not-found {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 42rem;
+  min-height: 100vh;
+  padding: 18vh 1.5rem;
+}
+
+.not-found h1 {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  margin-bottom: 0;
+}
+
+.not-found p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 760px) {
+  .app-header-inner {
+    min-height: 4rem;
+    padding: 0 1rem;
+  }
+
+  .header-account > span {
+    display: none;
+  }
+
+  .home-shell,
+  .space-shell {
+    padding: 3.5rem 1rem 4rem;
+  }
+
+  .home-intro {
+    text-align: left;
+  }
+
+  .home-intro h1 {
+    font-size: clamp(2.35rem, 12vw, 3.6rem);
+  }
+
+  .capture-card {
+    border-radius: 1.15rem;
+    padding: 0.8rem;
+  }
+
+  .capture-footer,
+  .journal-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .capture-actions {
+    justify-content: space-between;
+  }
+
+  .space-switch {
+    align-self: flex-start;
+  }
+
+  .space-grid {
+    grid-template-columns: 1fr;
+    margin-top: 2.5rem;
+  }
+
+  .space-card {
+    min-height: 16rem;
+  }
+
+  .space-heading {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .frontstage-placeholder {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 1rem 0 0;
+  }
+
+  .journal-section {
+    margin-top: 3.5rem;
+  }
+
+  .view-tabs {
+    align-self: flex-start;
+  }
+
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-copy {
+    min-height: 44vh;
+    padding: 2rem 1.25rem;
+  }
+
+  .auth-copy .brand-mark {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  .auth-copy h1 {
+    font-size: 2.7rem;
+  }
+
+  .auth-panel {
+    padding: 2.5rem 1.25rem 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
